@@ -31,7 +31,7 @@ Kelloggs; N = Nabisco; P = Post; Q = Quaker Oats; R = Ralston Purina
 7. sugars: grams of sugars
 8. shelf: display shelf (1, 2, or 3, counting from the floor)
 9. rating: the rating of the cereals from consumer reports.
-
+The data was retrieved from https://github.com/reisanar/datasets.git.
 
 ```
 

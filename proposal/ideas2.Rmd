@@ -1,0 +1,38 @@
+---
+title: "Project Proposal"
+output: html_notebook
+---
+
+title: "Project Proposal"
+output: html_notebook
+---
+
+## Section 1. Introduction
+```{r}
+#Cereal is beloved by all. We've enjoyed it our whole lives. It is part of a complete breakfast. But what makes puts a cereal at the top? What reasons do we rate some cereals higher than others? That is what my analysis plans to investigate. I have a dataset based on the Cereals.csv dataset from the https://github.com/reisanar/datasets.git github. However I have focused the data on a few key variables that I plan to analyze and observe which has the largest influence on the overall customer rating. 
+```
+
+
+## Section 2. Data Analysis Plan
+```{r}
+##I plan to analyze the data by first going through each variable and establishing a positive or negative correlation between it and the overall raitng. Next I will use this to slowly examine the changes in overall ratings by examining and comparing instances of higher and lower instances of each variables, observing how they effect with each other. Before determining which variable has the a greater effect on the highest number of observations. 
+```
+
+## Section 3. Data
+
+##The data contains 78 observaitons and is broken down into 9 varibles 
+1. Name: Name of cereal
+2. mfr: Manufacturer of cereal where A = American Home Food Products; G = General Mills; K =
+Kelloggs; N = Nabisco; P = Post; Q = Quaker Oats; R = Ralston Purina
+3. calories: calories per serving
+4. protein: grams of protein
+5. fiber: grams of dietary fiber
+6. carbo: grams of complex carbohydrates
+7. sugars: grams of sugars
+8. shelf: display shelf (1, 2, or 3, counting from the floor)
+9. rating: the rating of the cereals from consumer reports.
+
+
+```
+
+

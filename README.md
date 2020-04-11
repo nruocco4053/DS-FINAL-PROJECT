@@ -11,6 +11,6 @@ Team members:
 - Student 3 [Student 3](mailto:student3@floridapoly.edu)
 
 
-Our project investigates the main characteristics of popular movies in recent years.
-We will be using the data available at: 
-<https://github.com/reisanar/datasets/blob/master/IMDB_movies.csv> 
+My project investigates various characteristics of popular cereals to try and discover which characteristic has the greatest influence on a cereal's popularity.
+I will be using the data available at: 
+<https://github.com/nruocco4053/DS-FINAL-PROJECT.git/data/Cereals-2.csv> 

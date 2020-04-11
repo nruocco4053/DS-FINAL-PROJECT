@@ -14,3 +14,4 @@ Team members:
 My project investigates various characteristics of popular cereals to try and discover which characteristic has the greatest influence on a cereal's popularity.
 I will be using the data available at: 
 <https://github.com/nruocco4053/DS-FINAL-PROJECT/blob/master/data/Cereals-2.csv> 
+Which is a modified version of the data found at <https://github.com/reisanar/datasets/blob/master/Cereals.csv>

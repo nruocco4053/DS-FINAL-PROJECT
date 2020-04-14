@@ -5,12 +5,11 @@ output: html_notebook
 
 ## Section 1. Introduction
 ```{r}
-# Drug use is a rampant problem in our society. There many types of substances that a person can get hooked on and it can happen at any point in their lives. The best way to help with this problem is to better understand the facts behind the problem. 
+
 ```
 
 
 ## Section 2. Data Analysis Plan
-The idea behind this data analysis plan is to seperate the population into age groups, as well as the usage rate of various adictive substances, and analyze which groups are most often effected by the substance. Thus better understanding the problem and being better prepared to prevent these types of addictions from arrising among the most vulnerable groups.  
 
 ## Section 3. Data
 

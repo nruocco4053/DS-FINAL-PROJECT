@@ -8,4 +8,118 @@ This is where the final project report write-up goes.
 
 Before you submit, make sure everything runs as expected.
 
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
 You can add sections as you see fit. Make sure you have a section called "Introduction" at the beginning and a section called "Conclusion" at the end. The rest is up to you!
+
+## Introduction
+Breakfast, its the most important meal of the day. The breakfast of choice for many people is cereal. Everyone has a brand they love. But why do they love it? The answer vary depending on who you ask. But what we will try and uncover is what factor or factors most strongly contribute to a person's rating of that cereal. We will do this by analysing a modified dataset called Cereals_2. This dataset contains 76 observations accross  9 variables. 
+
+1. Name: Name of cereal
+2. mfr: Manufacturer of cereal where  G = General Mills; K =
+Kelloggs; N = Nabisco; P = Post; Q = Quaker Oats; R = Ralston Purina
+3. calories: calories per serving
+4. protein: grams of protein
+5. fiber: grams of dietary fiber
+6. carbo: grams of complex carbohydrates
+7. sugars: grams of sugars
+8. shelf: display shelf (1, 2, or 3, counting from the floor)
+9. rating: the rating of the cereals from consumer reports.
+
+The data was retrieved from https://github.com/reisanar/datasets.git.
+
+We will be focusing on analysing which of these variables contribute most highly to their overall rating. We will use manufacturers as the varaibles whose aspects we will analyse. As observing the individual cereal observations by name would be too numerous to analyse each of their variable's relations to their overall score. It should be noted that their are some manufacturers that will have more influence on the analysis than others. 
+```{r}
+Cereals_2 %>% 
+  count(mfr) %>% 
+  arrange(desc(n))
+```
+
+As we can see, General Mills and Kellogs have the most observations in this set, and thus will have the most influence and in some cases be analysed on seperate graphs to prevent their observations from offsetting or scewing observations of the other brands. As it will be better to understand the observations and graphs when the variables have closer numbers of entries and are more easily descernable from each other. 
+
+## Analyses 
+My process will be  going through each varibale from calories to shelf and see how they influence the rating through a few different observation methods. Then with that data I will come to a conclusion of which trait is the most beneficial for a cereal.
+
+First though, lets do a simple observation of the cereals listed based purely on their rating and see if we can spot anything interesting.
+```{r}
+Cereals_2 %>% 
+  arrange(desc(rating))
+```
+
+Immediately we can spot some patterns. The higher rated cereals tend to be relatively healthy, compared to their competition. Low low sugar, higher fiber nd protein, and slightly less calories than entries lower on the list.  Though the highest rated cereal, "All Bran With Extra Fiber" is a strong outlier. We can obeserve the biggest difference between it and other cereal arround it is the high fiber content. This could suggest that fiber is the biggest influencer on rating. But lets not jump to conclusions. Fiber also has low calories, higher protein, lower carbos, and no sugars. While also being on a higher shelf. A combination of all these things most likely contribute to it's extremely high rating, not just it's extra fiber. 
+
+
+So with this in mind, lets begin by looking at the impact of sugars. It is the lowest used ingredient amongst the top ranking cereals. So lets use a few examples to visualise its impact. 
+
+## Sugars
+
+```{r}
+Cereals_2 %>% 
+  arrange(desc(sugars))
+```
+
+
+Observing a simple listing of the dataset based on sugars, higher sugar cereals clearly have ratings at the lower end of the spectrum compared to others. Then, obeserving them in a more visual manner. 
+
+
+```{r}
+Cereals_2 %>% 
+  ggplot(aes(x=sugars, y=rating)) + geom_point(aes(color=mfr)) + xlab("sugars(grams)") + ggtitle("Sugar's Effect on the Ratings of All Cereal Brands")
+```
+
+
+We can see that this inital graph shows a clear negative relation between a cereals overall rating and its' sugar content. 0 sugar cereals have the highest ratings amongst their respective brands, and it gradually goes down hill from there. However this image is a little cramped, lets look at these brands a little more in depth.  
+
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("G", "K")) %>% 
+ggplot(aes( x=sugars, y=rating )) + geom_point(aes(color=mfr)) + geom_smooth(aes(color=mfr)) + ggtitle("Sugar's Effect on Rating for Kellogs and General Mills Cereal")+ xlab("Sugars(grams)")
+```
+The smoothed out line helps to show a clearer image of descent compared to the dots alone. I chose to first seperate out the two brands with the highest number of entries to show the effect sugar has on their ratings in proper numerical context. The negative relation is clearer here  than it was with the dot plot alone. Though they have a larger number of cereals in the database, their ratings are mostly negatively effected as the sugar content of their cereal increases. Looking at the dots alone, the trend is still clear. Kellogs(blue) has a 0 sugar cereal and it has the highest rating, but immediately drops with the next observation that has more sugar. While General Mills(Red) Starts with a sugary ceral that already has a 50 rating, only for the trend line to continue downward.   
+
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("P", "Q", "R", "N" )) %>% 
+ggplot(aes( x=sugars, y=rating )) + geom_point(aes(color=mfr)) + geom_smooth(aes(color=mfr), span = 1) + ggtitle("Sugar's Effect on Rating for Post, Quaker Oats, Nabisco, and Ralston Purina Cereals")+ xlab("Sugars(grams)")
+```
+
+The other brand entries are split into their own graph as they all have a similar number of entries into the database, and thus their patterns will be better displayed and recognized compared to being graphed alongside Kellogs and General Mills. Though they are on different graphs, the same pattern is clear, the majority of these cereals that have increased sugars correlate to having lower ratings. This pattern is even clear from the beginning. The cereals from Nabisco(Red) and Quaker Oats(Blue) that start with 0 sugar have higher ratings. But they slowly descend. Meanwhile Post(Green) and Ralston Purina(purple) start with cerals with a decent sugar content and already have lower ratings than their 0 sugar competitor, and as they increase, the trend continues.  Though Nabisco has one outlier cereal that has a higher rating despite its increased sugar. The general trend is still clear.  The descents are much less steep than on the previous graph, but that is due to the much lower number of entries on the database. But all of these companies hurt their cereal rankings as their sugar content increases. 
+
+
+
+Sugar is clearly not a positive contributor to cereal ratings. That much is clear. So lets continue our observations to the next most unlikely contributor to a cereal's success. Calories. Our society has slowly become more health conscious. And with that, more people view the calorie count of any product to be a key deciding factor when buying. So lets' observe if this trend also effect a cereal's rating.
+
+
+## Calories
+
+
+```{r}
+Cereals_2 %>% 
+  ggplot(aes(x=calories, y=rating)) + geom_point(aes(color=mfr)) + ggtitle(aes("Calories Effects on Cereal Ratings"))
+```
+
+Once again we can see a clear negative corelation between calories and cereal ratings. The negativity is arguably even clearer than with sugar's effects. So once again lets go a little more in depth. First we'll observe are two largest groups, Kellogs and General Mills, in a seperate graph to better understand their relationship with sugar. 
+
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("G", "K")) %>% 
+ggplot(aes( x=calories, y=rating )) + geom_point(aes(color=mfr)) + geom_smooth(aes(color=mfr)) + ggtitle("Calorie Count's Effect on Ratings for Kellogs and General Mills Cereal")
+```
+```
+
+Once again, both the dots and the smoothed trend line clearly illustrate the drop in ratings cereals have as their count increases. It's even clearer here as General Mills(Red) begins with higher calorie cereals and has a signifigantly lowe rating than Kellog's(blue) lower calorie cereal at the beginning of its trend line. General Mills trend line is shorter than Kellogs because General Mill's cereals are in the same range of calorie count, while Kellog's cereals have a much wider range of calorie counts. But the trend is clear in both instances.
+
+
+Now lets observe the impact of calories on our smaller sample sets. 
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("G", "K")) %>% 
+ggplot(aes( x=calories, y=rating )) + geom_point(aes(color=mfr)) + geom_smooth(aes(color=mfr)) + ggtitle("Calorie Count's Effect on Ratings for Kellogs and General Mills Cereal")
+```
+
+
+
+

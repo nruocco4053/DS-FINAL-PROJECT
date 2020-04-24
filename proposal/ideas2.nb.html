@@ -1754,30 +1754,60 @@ summary {
 <h2>Section 1. Introduction</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0NlcmVhbCBpcyBiZWxvdmVkIGJ5IGFsbC4gV2UndmUgZW5qb3llZCBpdCBvdXIgd2hvbGUgbGl2ZXMuIEl0IGlzIHBhcnQgb2YgYSBjb21wbGV0ZSBicmVha2Zhc3QuIEJ1dCB3aGF0IG1ha2VzIHB1dHMgYSBjZXJlYWwgYXQgdGhlIHRvcD8gV2hhdCByZWFzb25zIGRvIHdlIHJhdGUgc29tZSBjZXJlYWxzIGhpZ2hlciB0aGFuIG90aGVycz8gVGhhdCBpcyB3aGF0IG15IGFuYWx5c2lzIHBsYW5zIHRvIGludmVzdGlnYXRlLiBJIGhhdmUgYSBkYXRhc2V0IGJhc2VkIG9uIHRoZSBDZXJlYWxzLmNzdiBkYXRhc2V0IGZyb20gdGhlIGh0dHBzOi8vZ2l0aHViLmNvbS9yZWlzYW5hci9kYXRhc2V0cy5naXQgZ2l0aHViLiBIb3dldmVyIEkgaGF2ZSBmb2N1c2VkIHRoZSBkYXRhIG9uIGEgZmV3IGtleSB2YXJpYWJsZXMgdGhhdCBJIHBsYW4gdG8gYW5hbHl6ZSBhbmQgb2JzZXJ2ZSB3aGljaCBoYXMgdGhlIGxhcmdlc3QgaW5mbHVlbmNlIG9uIHRoZSBvdmVyYWxsIGN1c3RvbWVyIHJhdGluZy4gXG5gYGAifQ== -->
-<pre class="r"><code>#Cereal is beloved by all. We&#39;ve enjoyed it our whole lives. It is part of a complete breakfast. But what makes puts a cereal at the top? What reasons do we rate some cereals higher than others? That is what my analysis plans to investigate. I have a dataset based on the Cereals.csv dataset from the https://github.com/reisanar/datasets.git github. However I have focused the data on a few key variables that I plan to analyze and observe which has the largest influence on the overall customer rating. </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="section-2.-data-analysis-plan" class="section level2">
-<h2>Section 2. Data Analysis Plan</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyNJIHBsYW4gdG8gYW5hbHl6ZSB0aGUgZGF0YSBieSBmaXJzdCBnb2luZyB0aHJvdWdoIGVhY2ggdmFyaWFibGUgYW5kIGVzdGFibGlzaGluZyBhIHBvc2l0aXZlIG9yIG5lZ2F0aXZlIGNvcnJlbGF0aW9uIGJldHdlZW4gaXQgYW5kIHRoZSBvdmVyYWxsIHJhaXRuZy4gTmV4dCBJIHdpbGwgdXNlIHRoaXMgdG8gc2xvd2x5IGV4YW1pbmUgdGhlIGNoYW5nZXMgaW4gb3ZlcmFsbCByYXRpbmdzIGJ5IGV4YW1pbmluZyBhbmQgY29tcGFyaW5nIGluc3RhbmNlcyBvZiBoaWdoZXIgYW5kIGxvd2VyIGluc3RhbmNlcyBvZiBlYWNoIHZhcmlhYmxlcywgb2JzZXJ2aW5nIGhvdyB0aGV5IGVmZmVjdCB3aXRoIGVhY2ggb3RoZXIuIEJlZm9yZSBkZXRlcm1pbmluZyB3aGljaCB2YXJpYWJsZSBoYXMgdGhlIGEgZ3JlYXRlciBlZmZlY3Qgb24gdGhlIGhpZ2hlc3QgbnVtYmVyIG9mIG9ic2VydmF0aW9ucy4gXG5gYGAifQ== -->
-<pre class="r"><code>##I plan to analyze the data by first going through each variable and establishing a positive or negative correlation between it and the overall raitng. Next I will use this to slowly examine the changes in overall ratings by examining and comparing instances of higher and lower instances of each variables, observing how they effect with each other. Before determining which variable has the a greater effect on the highest number of observations. </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="section-3.-data" class="section level2">
-<h2>Section 3. Data</h2>
-<p>##The data contains 78 observaitons and is broken down into 9 varibles 1. Name: Name of cereal 2. mfr: Manufacturer of cereal where A = American Home Food Products; G = General Mills; K = Kelloggs; N = Nabisco; P = Post; Q = Quaker Oats; R = Ralston Purina 3. calories: calories per serving 4. protein: grams of protein 5. fiber: grams of dietary fiber 6. carbo: grams of complex carbohydrates 7. sugars: grams of sugars 8. shelf: display shelf (1, 2, or 3, counting from the floor) 9. rating: the rating of the cereals from consumer reports.</p>
-<p>```</p>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI0NlcmVhbCBpcyBiZWxvdmVkIGJ5IGFsbC4gV2UndmUgZW5qb3llZCBpdCBvdXIgd2hvbGUgbGl2ZXMuIEl0IGlzIHBhcnQgb2YgYSBjb21wbGV0ZSBicmVha2Zhc3QuIEJ1dCB3aGF0IG1ha2VzIHB1dHMgYSBjZXJlYWwgYXQgdGhlIHRvcD8gV2hhdCByZWFzb25zIGRvIHdlIHJhdGUgc29tZSBjZXJlYWxzIGhpZ2hlciB0aGFuIG90aGVycz8gVGhhdCBpcyB3aGF0IG15IGFuYWx5c2lzIHBsYW5zIHRvIGludmVzdGlnYXRlLiBJIGhhdmUgYSBkYXRhc2V0IGJhc2VkIG9uIHRoZSBDZXJlYWxzLmNzdiBkYXRhc2V0IGZyb20gdGhlIGh0dHBzOi8vZ2l0aHViLmNvbS9yZWlzYW5hci9kYXRhc2V0cy5naXQgZ2l0aHViLiBIb3dldmVyIEkgaGF2ZSBmb2N1c2VkIHRoZSBkYXRhIG9uIGEgZmV3IGtleSB2YXJpYWJsZXMgdGhhdCBJIHBsYW4gdG8gYW5hbHl6ZSBhbmQgb2JzZXJ2ZSB3aGljaCBoYXMgdGhlIGxhcmdlc3QgaW5mbHVlbmNlIG9uIHRoZSBvdmVyYWxsIGN1c3RvbWVyIHJhdGluZy4gXG5gYGBcbmBgYCJ9 -->
+<pre class="r"><code>```r
+#Cereal is beloved by all. We&#39;ve enjoyed it our whole lives. It is part of a complete breakfast. But what makes puts a cereal at the top? What reasons do we rate some cereals higher than others? That is what my analysis plans to investigate. I have a dataset based on the Cereals.csv dataset from the https://github.com/reisanar/datasets.git github. However I have focused the data on a few key variables that I plan to analyze and observe which has the largest influence on the overall customer rating. </code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+## Section 2. Data Analysis Plan
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyNJIHBsYW4gdG8gYW5hbHl6ZSB0aGUgZGF0YSBieSBmaXJzdCBnb2luZyB0aHJvdWdoIGVhY2ggdmFyaWFibGUgYW5kIGVzdGFibGlzaGluZyBhIHBvc2l0aXZlIG9yIG5lZ2F0aXZlIGNvcnJlbGF0aW9uIGJldHdlZW4gaXQgYW5kIHRoZSBvdmVyYWxsIHJhaXRuZy4gTmV4dCBJIHdpbGwgdXNlIHRoaXMgdG8gc2xvd2x5IGV4YW1pbmUgdGhlIGNoYW5nZXMgaW4gb3ZlcmFsbCByYXRpbmdzIGJ5IGV4YW1pbmluZyBhbmQgY29tcGFyaW5nIGluc3RhbmNlcyBvZiBoaWdoZXIgYW5kIGxvd2VyIGluc3RhbmNlcyBvZiBlYWNoIHZhcmlhYmxlcywgb2JzZXJ2aW5nIGhvdyB0aGV5IGVmZmVjdCB3aXRoIGVhY2ggb3RoZXIuIEJlZm9yZSBkZXRlcm1pbmluZyB3aGljaCB2YXJpYWJsZSBoYXMgdGhlIGEgZ3JlYXRlciBlZmZlY3Qgb24gdGhlIGhpZ2hlc3QgbnVtYmVyIG9mIG9ic2VydmF0aW9ucy4gXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+##I plan to analyze the data by first going through each variable and establishing a positive or negative correlation between it and the overall raitng. Next I will use this to slowly examine the changes in overall ratings by examining and comparing instances of higher and lower instances of each variables, observing how they effect with each other. Before determining which variable has the a greater effect on the highest number of observations. </code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+## Section 3. Data
+
+##The data contains 78 observaitons and is broken down into 9 varibles 
+1. Name: Name of cereal
+2. mfr: Manufacturer of cereal where A = American Home Products G = General Mills; K =
+Kelloggs; N = Nabisco; P = Post; Q = Quaker Oats; R = Ralston Purina
+3. calories: calories per serving
+4. protein: grams of protein
+5. fiber: grams of dietary fiber
+6. carbo: grams of complex carbohydrates
+7. sugars: grams of sugars
+8. shelf: display shelf (1, 2, or 3, counting from the floor)
+9. rating: the rating of the cereals from consumer reports.
+The data was retrieved from https://github.com/reisanar/datasets.git.
+</code></pre>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb2plY3QgUHJvcG9zYWwiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQp0aXRsZTogIlByb2plY3QgUHJvcG9zYWwiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIyBTZWN0aW9uIDEuIEludHJvZHVjdGlvbg0KYGBge3J9DQojQ2VyZWFsIGlzIGJlbG92ZWQgYnkgYWxsLiBXZSd2ZSBlbmpveWVkIGl0IG91ciB3aG9sZSBsaXZlcy4gSXQgaXMgcGFydCBvZiBhIGNvbXBsZXRlIGJyZWFrZmFzdC4gQnV0IHdoYXQgbWFrZXMgcHV0cyBhIGNlcmVhbCBhdCB0aGUgdG9wPyBXaGF0IHJlYXNvbnMgZG8gd2UgcmF0ZSBzb21lIGNlcmVhbHMgaGlnaGVyIHRoYW4gb3RoZXJzPyBUaGF0IGlzIHdoYXQgbXkgYW5hbHlzaXMgcGxhbnMgdG8gaW52ZXN0aWdhdGUuIEkgaGF2ZSBhIGRhdGFzZXQgYmFzZWQgb24gdGhlIENlcmVhbHMuY3N2IGRhdGFzZXQgZnJvbSB0aGUgaHR0cHM6Ly9naXRodWIuY29tL3JlaXNhbmFyL2RhdGFzZXRzLmdpdCBnaXRodWIuIEhvd2V2ZXIgSSBoYXZlIGZvY3VzZWQgdGhlIGRhdGEgb24gYSBmZXcga2V5IHZhcmlhYmxlcyB0aGF0IEkgcGxhbiB0byBhbmFseXplIGFuZCBvYnNlcnZlIHdoaWNoIGhhcyB0aGUgbGFyZ2VzdCBpbmZsdWVuY2Ugb24gdGhlIG92ZXJhbGwgY3VzdG9tZXIgcmF0aW5nLiANCmBgYA0KDQoNCiMjIFNlY3Rpb24gMi4gRGF0YSBBbmFseXNpcyBQbGFuDQpgYGB7cn0NCiMjSSBwbGFuIHRvIGFuYWx5emUgdGhlIGRhdGEgYnkgZmlyc3QgZ29pbmcgdGhyb3VnaCBlYWNoIHZhcmlhYmxlIGFuZCBlc3RhYmxpc2hpbmcgYSBwb3NpdGl2ZSBvciBuZWdhdGl2ZSBjb3JyZWxhdGlvbiBiZXR3ZWVuIGl0IGFuZCB0aGUgb3ZlcmFsbCByYWl0bmcuIE5leHQgSSB3aWxsIHVzZSB0aGlzIHRvIHNsb3dseSBleGFtaW5lIHRoZSBjaGFuZ2VzIGluIG92ZXJhbGwgcmF0aW5ncyBieSBleGFtaW5pbmcgYW5kIGNvbXBhcmluZyBpbnN0YW5jZXMgb2YgaGlnaGVyIGFuZCBsb3dlciBpbnN0YW5jZXMgb2YgZWFjaCB2YXJpYWJsZXMsIG9ic2VydmluZyBob3cgdGhleSBlZmZlY3Qgd2l0aCBlYWNoIG90aGVyLiBCZWZvcmUgZGV0ZXJtaW5pbmcgd2hpY2ggdmFyaWFibGUgaGFzIHRoZSBhIGdyZWF0ZXIgZWZmZWN0IG9uIHRoZSBoaWdoZXN0IG51bWJlciBvZiBvYnNlcnZhdGlvbnMuIA0KYGBgDQoNCiMjIFNlY3Rpb24gMy4gRGF0YQ0KDQojI1RoZSBkYXRhIGNvbnRhaW5zIDc4IG9ic2VydmFpdG9ucyBhbmQgaXMgYnJva2VuIGRvd24gaW50byA5IHZhcmlibGVzIA0KMS4gTmFtZTogTmFtZSBvZiBjZXJlYWwNCjIuIG1mcjogTWFudWZhY3R1cmVyIG9mIGNlcmVhbCB3aGVyZSBBID0gQW1lcmljYW4gSG9tZSBGb29kIFByb2R1Y3RzOyBHID0gR2VuZXJhbCBNaWxsczsgSyA9DQpLZWxsb2dnczsgTiA9IE5hYmlzY287IFAgPSBQb3N0OyBRID0gUXVha2VyIE9hdHM7IFIgPSBSYWxzdG9uIFB1cmluYQ0KMy4gY2Fsb3JpZXM6IGNhbG9yaWVzIHBlciBzZXJ2aW5nDQo0LiBwcm90ZWluOiBncmFtcyBvZiBwcm90ZWluDQo1LiBmaWJlcjogZ3JhbXMgb2YgZGlldGFyeSBmaWJlcg0KNi4gY2FyYm86IGdyYW1zIG9mIGNvbXBsZXggY2FyYm9oeWRyYXRlcw0KNy4gc3VnYXJzOiBncmFtcyBvZiBzdWdhcnMNCjguIHNoZWxmOiBkaXNwbGF5IHNoZWxmICgxLCAyLCBvciAzLCBjb3VudGluZyBmcm9tIHRoZSBmbG9vcikNCjkuIHJhdGluZzogdGhlIHJhdGluZyBvZiB0aGUgY2VyZWFscyBmcm9tIGNvbnN1bWVyIHJlcG9ydHMuDQoNCg0KYGBgDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb2plY3QgUHJvcG9zYWwiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQp0aXRsZTogIlByb2plY3QgUHJvcG9zYWwiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIyBTZWN0aW9uIDEuIEludHJvZHVjdGlvbg0KYGBge3J9DQojQ2VyZWFsIGlzIGJlbG92ZWQgYnkgYWxsLiBXZSd2ZSBlbmpveWVkIGl0IG91ciB3aG9sZSBsaXZlcy4gSXQgaXMgcGFydCBvZiBhIGNvbXBsZXRlIGJyZWFrZmFzdC4gQnV0IHdoYXQgbWFrZXMgcHV0cyBhIGNlcmVhbCBhdCB0aGUgdG9wPyBXaGF0IHJlYXNvbnMgZG8gd2UgcmF0ZSBzb21lIGNlcmVhbHMgaGlnaGVyIHRoYW4gb3RoZXJzPyBUaGF0IGlzIHdoYXQgbXkgYW5hbHlzaXMgcGxhbnMgdG8gaW52ZXN0aWdhdGUuIEkgaGF2ZSBhIGRhdGFzZXQgYmFzZWQgb24gdGhlIENlcmVhbHMuY3N2IGRhdGFzZXQgZnJvbSB0aGUgaHR0cHM6Ly9naXRodWIuY29tL3JlaXNhbmFyL2RhdGFzZXRzLmdpdCBnaXRodWIuIEhvd2V2ZXIgSSBoYXZlIGZvY3VzZWQgdGhlIGRhdGEgb24gYSBmZXcga2V5IHZhcmlhYmxlcyB0aGF0IEkgcGxhbiB0byBhbmFseXplIGFuZCBvYnNlcnZlIHdoaWNoIGhhcyB0aGUgbGFyZ2VzdCBpbmZsdWVuY2Ugb24gdGhlIG92ZXJhbGwgY3VzdG9tZXIgcmF0aW5nLiANCmBgYA0KDQoNCiMjIFNlY3Rpb24gMi4gRGF0YSBBbmFseXNpcyBQbGFuDQpgYGB7cn0NCiMjSSBwbGFuIHRvIGFuYWx5emUgdGhlIGRhdGEgYnkgZmlyc3QgZ29pbmcgdGhyb3VnaCBlYWNoIHZhcmlhYmxlIGFuZCBlc3RhYmxpc2hpbmcgYSBwb3NpdGl2ZSBvciBuZWdhdGl2ZSBjb3JyZWxhdGlvbiBiZXR3ZWVuIGl0IGFuZCB0aGUgb3ZlcmFsbCByYWl0bmcuIE5leHQgSSB3aWxsIHVzZSB0aGlzIHRvIHNsb3dseSBleGFtaW5lIHRoZSBjaGFuZ2VzIGluIG92ZXJhbGwgcmF0aW5ncyBieSBleGFtaW5pbmcgYW5kIGNvbXBhcmluZyBpbnN0YW5jZXMgb2YgaGlnaGVyIGFuZCBsb3dlciBpbnN0YW5jZXMgb2YgZWFjaCB2YXJpYWJsZXMsIG9ic2VydmluZyBob3cgdGhleSBlZmZlY3Qgd2l0aCBlYWNoIG90aGVyLiBCZWZvcmUgZGV0ZXJtaW5pbmcgd2hpY2ggdmFyaWFibGUgaGFzIHRoZSBhIGdyZWF0ZXIgZWZmZWN0IG9uIHRoZSBoaWdoZXN0IG51bWJlciBvZiBvYnNlcnZhdGlvbnMuIA0KYGBgDQoNCiMjIFNlY3Rpb24gMy4gRGF0YQ0KDQojI1RoZSBkYXRhIGNvbnRhaW5zIDc4IG9ic2VydmFpdG9ucyBhbmQgaXMgYnJva2VuIGRvd24gaW50byA5IHZhcmlibGVzIA0KMS4gTmFtZTogTmFtZSBvZiBjZXJlYWwNCjIuIG1mcjogTWFudWZhY3R1cmVyIG9mIGNlcmVhbCB3aGVyZSBBID0gQW1lcmljYW4gSG9tZSBQcm9kdWN0cyBHID0gR2VuZXJhbCBNaWxsczsgSyA9DQpLZWxsb2dnczsgTiA9IE5hYmlzY287IFAgPSBQb3N0OyBRID0gUXVha2VyIE9hdHM7IFIgPSBSYWxzdG9uIFB1cmluYQ0KMy4gY2Fsb3JpZXM6IGNhbG9yaWVzIHBlciBzZXJ2aW5nDQo0LiBwcm90ZWluOiBncmFtcyBvZiBwcm90ZWluDQo1LiBmaWJlcjogZ3JhbXMgb2YgZGlldGFyeSBmaWJlcg0KNi4gY2FyYm86IGdyYW1zIG9mIGNvbXBsZXggY2FyYm9oeWRyYXRlcw0KNy4gc3VnYXJzOiBncmFtcyBvZiBzdWdhcnMNCjguIHNoZWxmOiBkaXNwbGF5IHNoZWxmICgxLCAyLCBvciAzLCBjb3VudGluZyBmcm9tIHRoZSBmbG9vcikNCjkuIHJhdGluZzogdGhlIHJhdGluZyBvZiB0aGUgY2VyZWFscyBmcm9tIGNvbnN1bWVyIHJlcG9ydHMuDQpUaGUgZGF0YSB3YXMgcmV0cmlldmVkIGZyb20gaHR0cHM6Ly9naXRodWIuY29tL3JlaXNhbmFyL2RhdGFzZXRzLmdpdC4NCg0KYGBgDQoNCg0K</div>
 
 
 

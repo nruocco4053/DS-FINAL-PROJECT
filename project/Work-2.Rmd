@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Nick Ruocco Final Project"
 output: html_notebook
 ---
 
@@ -8,7 +8,27 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 
 ```{r}
-plot(cars)
+library(tidyverse)
+library(ggplot2)
+```
+
+
+```{r}
+Cereals_2 %>% 
+  count()
+```
+#all factors
+```{r}
+Cereals_2 %>% 
+  ggplot(aes(x=carbo, y=rating)) + geom_point(aes(color=mfr))
+Cereals_2 %>% 
+  ggplot(aes(x=calories, y=rating)) + geom_point(aes(color=mfr))
+Cereals_2 %>% 
+  ggplot(aes(x=fiber, y=rating)) + geom_point(aes(color=mfr))
+Cereals_2 %>% 
+  ggplot(aes(x=sugars, y=rating)) + geom_point(aes(color=mfr))
+Cereals_2 %>% 
+  ggplot(aes(x=shelf, y=rating)) + geom_point(aes(color=mfr))
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
@@ -16,3 +36,231 @@ Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by press
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+
+
+
+
+```{r}
+ Cereals_2 %>% 
+  filter(mfr=="R") %>% 
+ arrange( desc(rating))
+
+
+
+```
+
+```{r}
+Nabisco_avg_carb/Nabisco_avg_rating
+
+Nabisco_avg_fiber/Nabisco_avg_rating
+
+Nabisco_avg_calories/Nabisco_avg_rating
+
+Nabisco_avg_protein/Nabisco_avg_rating
+
+Nabisco_avg_sugars/Nabisco_avg_rating
+
+Nabisco_avg_shelf/Nabisco_avg_rating
+```
+
+#Carbo
+```{r}
+Cereals_2 %>% 
+  filter(mfr == "K") %>% 
+ggplot(aes( x=carbo, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter(mfr == "N") %>% 
+ggplot(aes( x=carbo, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter(mfr == "P") %>% 
+ggplot(aes( x=carbo, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter(mfr == "G") %>% 
+ggplot(aes( x=carbo, y=rating )) + geom_smooth(aes(color=mfr))
+
+
+```
+
+
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("G", "K")) %>% 
+ggplot(aes( x=sugars, y=rating )) + geom_smooth(aes(color=mfr)) + ggtitle("Sugar's Effect on Rating for Kellogs and General Mills Cereal")
+```
+
+#protein and fiber
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("N",  "Q", "R")) %>% 
+ggplot(aes( x=protein, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter( mfr %in% c("P")) %>% 
+ggplot(aes( x=fiber, y=rating )) + geom_smooth(aes(color=mfr))
+```
+
+#Calories Geom Curve
+```{r}
+Cereals_2 %>% 
+
+ggplot(aes( x=sugars, y=rating )) + geom_curve(aes(yend=70, xend=180, color=mfr))
+
+
+```
+
+```{r}
+Cereals_2 %>% 
+ggplot(aes( x=shelf, y=rating )) + geom_line(aes(color = mfr))
+
+```
+
+
+```{r}
+Cereals_2 %>%
+    filter(  mfr %in% c("N", "G")) %>% 
+  
+ggplot(aes( x=protein, y=rating )) + geom_line(aes(color=mfr))
+
+ggplot(Cereals_2, aes( x=shelf, y=rating )) + geom_point(aes(color=mfr))
+```
+
+
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("G", "K")) %>% 
+ggplot(aes( x=shelf, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter( mfr %in% c("N",  "Q", "R")) %>% 
+ggplot(aes( x=shelf, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter( mfr %in% c("P")) %>% 
+ggplot(aes( x=sugars, y=rating )) + geom_smooth(aes(color=mfr))
+```
+
+
+# cereals by rating. Higher fiber cereals better rated?
+```{r}
+Cereals_2 %>% 
+  filter( mfr == "N") %>% 
+  arrange(desc(rating))
+    
+```
+
+
+
+
+```{r}
+Cereals_2 %>% 
+  filter(  mfr %in% c("G", "K")) %>% 
+ggplot(aes( x=protein, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter(  mfr %in% c("G", "K", "P")) %>% 
+ggplot(aes( x=sugars, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter(  mfr %in% c("G", "K", "P")) %>% 
+ggplot(aes( x=fiber, y=rating )) + geom_point(aes(color=mfr))
+```
+
+
+```{r}
+Cereals_2 %>% 
+ggplot(aes( x=rating, fill = mfr )) +  stat_bin(binwidth = .5)
+```
+
+
+
+
+```{r}
+Cereals_2 %>% 
+    filter(  mfr %in% c("G", "K")) %>% 
+ggplot(aes( x=protein, y=rating )) + geom_smooth(aes(color = mfr))
+
+Cereals_2 %>% 
+    filter(  mfr %in% c("N")) %>% 
+ggplot(aes( x=protein, y=rating )) + geom_smooth(aes(color = mfr))
+
+
+
+Cereals_2 %>% 
+  filter( mfr %in% c("N",  "Q", "R")) %>% 
+ggplot(aes( x=shelf, y=rating )) + geom_smooth(aes(color=mfr))
+
+Cereals_2 %>% 
+  filter( mfr %in% c("P")) %>% 
+ggplot(aes( x=sugars, y=rating )) + geom_smooth(aes(color=mfr))
+
+```
+
+
+Fiber and shelf ratingbigger influencers
+```{r}
+Cereals_2 %>% 
+ggplot(aes( x=protein, y=rating )) + geom_curve(aes(yend=70, xend=90, color=mfr))
+
+Cereals_2 %>% 
+ggplot(aes( x=shelf, y=rating )) + geom_curve(aes(yend=70, xend=4, color=mfr))
+
+Cereals_2 %>% 
+ggplot(aes( x=fiber, y=rating )) + geom_curve(aes(yend=70, xend=15, color=mfr))
+```
+
+
+```{r}
+Cereals_2 %>% 
+ggplot(aes( x=calories, y=rating )) + geom_curve(aes(yend=70, xend=15, color=mfr)) + ggtitle("Overall ratings trend for all manufacturers based on Calorie increases") + xlab("Manufacturers") 
+```
+
+
+```{r}
+Cereals_2 %>% 
+ggplot(aes( x=mfr, y=rating )) + geom_point(aes(color=mfr)) + ggtitle("Individual Instances of Ratings Based on Manufacturer") + xlab("Manufacturers") 
+```
+
+
+```{r}
+Cereals_2 %>% 
+sample(76, size = 10)
+```
+
+
+```{r}
+Cereals_2 %>% 
+  arrange(desc(sugars))
+```
+
+
+```{r}
+
+Cereals_2 %>% 
+  ggplot(aes(x=sugars, y=rating))  + geom_smooth(aes(color=mfr), span = 01) + xlab("Sugars(grams)")
+```
+
+```{r}
+Cereals_2 %>% 
+  ggplot() + geom_line(aes(y=rating, x= calories, color=mfr))
+
+```
+
+```{r}
+Cereals_2 %>% 
+  filter( mfr %in% c("G", "K","P", "Q", "R", "N" )) %>% 
+ggplot(aes( x=sugars, y=rating )) + geom_point(aes(color=mfr)) + geom_smooth(aes(color=mfr), se = FALSE, span = 1) + ggtitle("Sugar's Effect on Rating All cereals")+ xlab("Sugars") + geom_hline(yintercept=42, linetype = "dashed", color = "black") + geom_vline(xintercept=7.1, linetype = "dashed", color = "black") + geom_text(aes(6,0, label = "avg_sugars ")) + geom_text(aes(0,45, label = "avg_rating", hjust = -.01))
+```
+
+
+
+
+```{r}
+
+Cereals_2 %>% 
+  filter( mfr %in% c("G", "K","P", "Q", "R", "N")) %>% 
+ggplot(aes( x=shelf, y=rating ))  + geom_smooth(aes(color=mfr), se = FALSE,  span=1 ) + geom_point(aes(color=mfr)) + ggtitle("Shelf Placement's Effect on Ratings of  all cereals ")+ geom_hline(yintercept=42, linetype = "dashed", color = "purple") + geom_vline(xintercept=2.18, linetype = "dashed", color = "black") + geom_text(aes(2.52,0, label = "avg_fiber ", hjust = -.1)) + geom_text(aes(0,45, label = "avg_rating", hjust = -.01))
+```

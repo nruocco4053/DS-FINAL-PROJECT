@@ -22,7 +22,7 @@ output: html_notebook
 
 ##The data contains 78 observaitons and is broken down into 9 varibles 
 1. Name: Name of cereal
-2. mfr: Manufacturer of cereal where A = American Home Food Products; G = General Mills; K =
+2. mfr: Manufacturer of cereal where A = American Home Products G = General Mills; K =
 Kelloggs; N = Nabisco; P = Post; Q = Quaker Oats; R = Ralston Purina
 3. calories: calories per serving
 4. protein: grams of protein

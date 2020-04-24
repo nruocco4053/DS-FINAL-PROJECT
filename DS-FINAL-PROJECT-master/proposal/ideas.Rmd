@@ -1,0 +1,17 @@
+---
+title: "Project Proposal"
+output: html_notebook
+---
+
+## Section 1. Introduction
+```{r}
+
+```
+
+
+## Section 2. Data Analysis Plan
+
+## Section 3. Data
+
+#This dataset was obtained from the data.world/fivethirtyeight website. 
+
